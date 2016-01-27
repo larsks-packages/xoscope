@@ -1,15 +1,16 @@
 Name:		xoscope
 Version:	2.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	xoscope is a digital oscilloscope for Linux
 
 License:	GPL
 URL:		http://xoscope.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 
-BuildRequires:	gtk2-devel
+BuildRequires:  gtk2-devel
 BuildRequires:  gtkdatabox-devel
-BuildRequires:   fftw3-devel
+BuildRequires:  fftw3-devel
+BuildRequires:  alsa-lib-devel
 
 %description
 Xoscope is a digital real-time oscilloscope. It graphically displays signal
@@ -38,7 +39,12 @@ make %{?_smp_mflags}
 %doc README
 %license COPYING
 
-
+%{_bindir}/xoscope
+%{_mandir}/man1/xoscope.1.gz
+%{_datadir}/pixmaps/xoscope.png
 
 %changelog
+
+* Tue Jan 26 2015 Lars Kellogg-Stedman <lars@oddbit.com> - 2.1-1
+- initial package
 

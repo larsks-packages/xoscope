@@ -1,6 +1,6 @@
 Name:		xoscope
 Version:	2.1
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	xoscope is a digital oscilloscope for Linux
 
 License:	GPL
@@ -27,7 +27,7 @@ and manipulated by math functions.
 
 %build
 %configure
-make %{?_smp_mflags}
+make %{?_smp_mflags} CCDEPMODE=depmode=gcc3 LDFLAGS="-Wl,-z,relro"
 
 
 %install
@@ -45,6 +45,5 @@ make %{?_smp_mflags}
 
 %changelog
 
-* Tue Jan 26 2015 Lars Kellogg-Stedman <lars@oddbit.com> - 2.1-1
+* Tue Jan 26 2016 Lars Kellogg-Stedman <lars@oddbit.com> - 2.1-3
 - initial package
-
